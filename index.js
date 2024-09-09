@@ -35,7 +35,8 @@ function addBookToLibrary() {
 AddBookBtn.addEventListener("click", addBookToLibrary);
 
 function displayBook() {
-
+    table.textContent = "";
+    
     for (book of myLibrary) {
         const row = document.createElement("tr");
         const titleData = document.createElement("td");
@@ -74,6 +75,7 @@ function displayBook() {
     }
 }
 
-function deleteBook() {
-    
+
+function deleteBook(event) {
+
 }

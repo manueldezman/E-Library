@@ -21,14 +21,23 @@ const pages = document.querySelector("#pages");
 const table = document.querySelector(".tbody");
 
 
-const Book1 = new Book("give and take", "Hill", "250", "not read");
+const Book1 = new Book("Think and grow Rich", "Napoleon Hill", "250");
+const Book2 = new Book("Atomic Habits", "James Clear", "260");
+const Book3 = new Book("Richest Man in Babylon", "George Carson", "144");
+const Book4 = new Book("Permission Marketing", "Seth Godin", "224");
+
 myLibrary.push(Book1);
+myLibrary.push(Book2);
+myLibrary.push(Book3);
+myLibrary.push(Book4);
+
+
 displayBook();
 
 console.log(myLibrary);
 
 function addBookToLibrary() {
-    const bookName = new Book(title.value, author.value, pages.value, "not read");
+    const bookName = new Book(title.value, author.value, pages.value);
     myLibrary.push(bookName);
     console.log(myLibrary);
     displayBook();

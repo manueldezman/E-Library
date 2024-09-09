@@ -80,6 +80,17 @@ function displayBook() {
 
 
 table.addEventListener("click", function(event) {
+
+    if (event.target.id === "Readbtn") {
+        console.log(event.target.textContent);
+        if (event.target.textContent === "Not Read") {
+            event.target.textContent = "Read";
+        }
+        else {
+            event.target.textContent = "Not Read";
+        }
+    }
+
     console.log(event.target.id);
 
     for (book of myLibrary) {

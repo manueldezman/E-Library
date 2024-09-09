@@ -14,19 +14,22 @@ function Book(title, author, pages, read) {
 
 const AddNewBookBtn = document.querySelector(".addNewBook");
 const AddBookBtn = document.querySelector(".addBook");
+
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const table = document.querySelector(".tbody");
 
+
 const Book1 = new Book("give and take", "Hill", "250", "not read");
 myLibrary.push(Book1);
+displayBook();
 
 console.log(myLibrary);
 
 function addBookToLibrary() {
-    const Book2 = new Book(title.value, author.value, pages.value, "not read");
-    myLibrary.push(Book2);
+    const bookName = new Book(title.value, author.value, pages.value, "not read");
+    myLibrary.push(bookName);
     console.log(myLibrary);
     displayBook();
 }
@@ -36,9 +39,10 @@ AddBookBtn.addEventListener("click", addBookToLibrary);
 
 function displayBook() {
     table.textContent = "";
-    
+
     for (book of myLibrary) {
         const row = document.createElement("tr");
+        row.setAttribute("id", book.title);
         const titleData = document.createElement("td");
         titleData.textContent = book.title;
         row.appendChild(titleData);
@@ -59,23 +63,32 @@ function displayBook() {
         
         const ReadBtn = document.createElement("button");
         ReadBtn.textContent = "Not Read";
-        ReadBtn.classList.add("Readbtn")
+        ReadBtn.setAttribute("id", "Readbtn")
         ActionsData.appendChild(ReadBtn);
 
         const DeleteBtn = document.createElement("button");
         DeleteBtn.textContent = "Delete";
-        DeleteBtn.classList.add("Deletebtn")
+        DeleteBtn.setAttribute("id", book.title);
         ActionsData.appendChild(DeleteBtn);
         
         row.appendChild(ActionsData);
 
         table.appendChild(row);
 
-
     }
 }
 
 
-function deleteBook(event) {
+table.addEventListener("click", function(event) {
+    console.log(event.target.id);
 
-}
+    for (book of myLibrary) {
+        if (event.target.id === book.title) {
+            let index = myLibrary.indexOf(book);
+
+            myLibrary.splice(index, 1);
+
+            displayBook();
+        }
+    }
+});

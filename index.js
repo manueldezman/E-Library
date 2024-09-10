@@ -12,19 +12,20 @@ function Book(title, author, pages, read) {
     }
 }
 
-const AddNewBookBtn = document.querySelector(".addNewBook");
+// const AddNewBookBtn = document.querySelector(".addNewBook");
 const AddBookBtn = document.querySelector(".addBook");
 
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
 const pages = document.querySelector("#pages");
 const table = document.querySelector(".tbody");
+const checkBox = document.querySelector("#read");
 
 
-const Book1 = new Book("Think and grow Rich", "Napoleon Hill", "250");
-const Book2 = new Book("Atomic Habits", "James Clear", "260");
-const Book3 = new Book("Richest Man in Babylon", "George Carson", "144");
-const Book4 = new Book("Permission Marketing", "Seth Godin", "224");
+const Book1 = new Book("Think and grow Rich", "Napoleon Hill", "250", "Yes");
+const Book2 = new Book("Atomic Habits", "James Clear", "260", "Yes");
+const Book3 = new Book("Richest Man in Babylon", "George Carson", "144", "Yes");
+const Book4 = new Book("Permission Marketing", "Seth Godin", "224", "Yes");
 
 myLibrary.push(Book1);
 myLibrary.push(Book2);
@@ -37,11 +38,24 @@ displayBook();
 console.log(myLibrary);
 
 function addBookToLibrary() {
-    const bookName = new Book(title.value, author.value, pages.value);
+    let ReadData;
+
+    if (checkBox.checked) {
+        ReadData = "Yes";
+    }
+    else {
+        ReadData = "No";
+    }
+    const bookName = new Book(title.value, author.value, pages.value, ReadData);
     myLibrary.push(bookName);
     console.log(myLibrary);
     displayBook();
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    checkBox.checked = false;
 }
+
 
 
 AddBookBtn.addEventListener("click", addBookToLibrary);
@@ -64,17 +78,15 @@ function displayBook() {
         pagesData.textContent = book.pages;
         row.appendChild(pagesData);
 
-        const ReadData = document.createElement("td");
-        ReadData.textContent = "No";
-        row.appendChild(ReadData);
+        
+        const ReadBtn = document.createElement("td");
+        let index = myLibrary.indexOf(book);
+
+        ReadBtn.innerHTML = `<button id="${index}" onclick="toggleRead(${index})"> ${book.read}</button>`;
+        row.appendChild(ReadBtn);
+
 
         const ActionsData = document.createElement("td");
-        
-        const ReadBtn = document.createElement("button");
-        ReadBtn.textContent = "Not Read";
-        ReadBtn.setAttribute("id", "Readbtn")
-        ActionsData.appendChild(ReadBtn);
-
         const DeleteBtn = document.createElement("button");
         DeleteBtn.textContent = "Delete";
         DeleteBtn.setAttribute("id", book.title);
@@ -88,20 +100,19 @@ function displayBook() {
 }
 
 
-table.addEventListener("click", function(event) {
-
-    if (event.target.id === "Readbtn") {
-        console.log(event.target.textContent);
-        if (event.target.textContent === "Not Read") {
-            event.target.textContent = "Read";
-        }
-        else {
-            event.target.textContent = "Not Read";
-        }
+function toggleRead(id) {
+    if (myLibrary[id].read === "Yes") {
+        myLibrary[id].read = "No";
+    } 
+    else if (myLibrary[id].read === "No") {
+        myLibrary[id].read = "Yes";
     }
 
-    console.log(event.target.id);
+    displayBook();
+}
 
+table.addEventListener("click", function(event) {
+    
     for (book of myLibrary) {
         if (event.target.id === book.title) {
             let index = myLibrary.indexOf(book);

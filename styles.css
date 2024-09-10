@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: unset;
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    position: relative;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    padding-top: 10rem;
+}
+.modal {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+.modal-container {
+    margin-top: 10rem;
+    margin-inline: auto;
+    max-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    color: darkgreen;
+    gap: 1rem;
+    background-color: #f3f3f3;  
+    align-items: center;
+    padding: 2rem 0;
+
+}
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: .5rem;
+}
+input[type="checkbox"] {
+    height: 1.6rem;
+    width: 1.6rem;
+    accent-color: green;
+}
+input {
+    outline-color: green;
+    border: .1rem solid darkgreen;
+    color: green; 
+}
+input:invalid {
+    border: .1rem solid darkred;
+}
+.input-container > button, .input-container > input, .checkbox-container {
+    width: 28rem;
+    padding: .5rem 1rem;
+}
+.active {
+    display: block;
+    z-index: 2;
+}
+button {
+    padding: .5rem 1rem;
+}
+
+table {
+    margin-inline: auto;
+    border-collapse: collapse;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    font-size: 1.6rem;
+}
+  
+td, th {
+    padding: 10px 10px;
+
+  }
+  
+td {
+    text-align: center;
+  }
+thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+thead tr > th:last-of-type {
+    overflow: hidden;
+    border-radius: 0 1rem 0 0;
+
+}
+thead tr > th:first-of-type {
+    border-radius:  1rem 0 0 0;
+}
+tbody tr:nth-child(even) {
+    background-color: #f3f3f3;  
+}
+
+tr:last-of-type {
+    border-bottom: .2rem solid #009879;
+}
+caption {
+    padding: 10px;
+}
+
+
+.ReadBtn {
+    color: white;
+    background-color: darkgreen;
+    width: 7rem;
+}
+
+button {
+    color: white;
+    background-color: darkred;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.addNewBook {
+    color: darkgreen;
+    font-weight: bold;
+    background-color: white;
+    font-size: 1.5rem;
+
+}
+
+.addBook {
+    background-color: darkgreen;
+}
+
+.header {
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    max-width: 60rem;
+    margin-bottom: 1rem;
+    margin-inline: auto;
+    align-items: center;
+}
+.header-title {
+    padding: 0;
+    font-size: 2rem;
+    color: darkgreen;
+}

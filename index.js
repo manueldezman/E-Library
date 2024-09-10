@@ -12,8 +12,10 @@ function Book(title, author, pages, read) {
     }
 }
 
-// const AddNewBookBtn = document.querySelector(".addNewBook");
+const AddNewBookBtn = document.querySelector(".addNewBook");
 const AddBookBtn = document.querySelector(".addBook");
+const modal = document.querySelector(".modal");
+const cancelBtn = document.querySelector(".cancel");
 
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
@@ -32,12 +34,12 @@ myLibrary.push(Book2);
 myLibrary.push(Book3);
 myLibrary.push(Book4);
 
+modal.classList.remove("active");
 
 displayBook();
 
-console.log(myLibrary);
-
 function addBookToLibrary() {
+if (title.value != "" && author.value != "" && pages.value != "") {
     let ReadData;
 
     if (checkBox.checked) {
@@ -54,11 +56,14 @@ function addBookToLibrary() {
     author.value = "";
     pages.value = "";
     checkBox.checked = false;
+
+    modal.classList.remove("active");
+}
 }
 
 
 
-AddBookBtn.addEventListener("click", addBookToLibrary);
+ AddBookBtn.addEventListener("click", addBookToLibrary);
 
 function displayBook() {
     table.textContent = "";
@@ -82,7 +87,7 @@ function displayBook() {
         const ReadBtn = document.createElement("td");
         let index = myLibrary.indexOf(book);
 
-        ReadBtn.innerHTML = `<button id="${index}" onclick="toggleRead(${index})"> ${book.read}</button>`;
+        ReadBtn.innerHTML = `<button id="${index}" onclick="toggleRead(${index})" class="ReadBtn"> ${book.read}</button>`;
         row.appendChild(ReadBtn);
 
 
@@ -99,6 +104,12 @@ function displayBook() {
     }
 }
 
+cancelBtn.addEventListener("click", showModal);
+
+function showModal() {
+    modal.classList.toggle("active");
+}
+AddNewBookBtn.addEventListener("click", showModal);
 
 function toggleRead(id) {
     if (myLibrary[id].read === "Yes") {

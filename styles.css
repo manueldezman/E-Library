@@ -118,7 +118,9 @@ caption {
     background-color: darkgreen;
     width: 7rem;
 }
-
+.ReadBtn:hover, .addBook:hover, .addNewBook:hover {
+    box-shadow: 0 0 15px rgba(30, 165, 48, 0.5);   
+}
 button {
     color: white;
     background-color: darkred;
@@ -130,7 +132,6 @@ button {
     font-weight: bold;
     background-color: white;
     font-size: 1.5rem;
-
 }
 
 .addBook {
@@ -150,4 +151,8 @@ button {
     padding: 0;
     font-size: 2rem;
     color: darkgreen;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(193, 65, 65, 0.5);   
 }

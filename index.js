@@ -12,59 +12,32 @@ function Book(title, author, pages, read) {
     }
 }
 
-const AddNewBookBtn = document.querySelector(".addNewBook");
-const AddBookBtn = document.querySelector(".addBook");
-const modal = document.querySelector(".modal");
-const cancelBtn = document.querySelector(".cancel");
-
-const title = document.querySelector("#title");
-const author = document.querySelector("#author");
-const pages = document.querySelector("#pages");
-const table = document.querySelector(".tbody");
-const checkBox = document.querySelector("#read");
-
-
-const Book1 = new Book("Think and grow Rich", "Napoleon Hill", "250", "Yes");
-const Book2 = new Book("Atomic Habits", "James Clear", "260", "Yes");
-const Book3 = new Book("Richest Man in Babylon", "George Carson", "144", "Yes");
-const Book4 = new Book("Permission Marketing", "Seth Godin", "224", "Yes");
-
-myLibrary.push(Book1);
-myLibrary.push(Book2);
-myLibrary.push(Book3);
-myLibrary.push(Book4);
-
-modal.classList.remove("active");
-
-displayBook();
+function showModal() {
+    modal.classList.toggle("active");
+}
 
 function addBookToLibrary() {
-if (title.value != "" && author.value != "" && pages.value != "") {
-    let ReadData;
-
-    if (checkBox.checked) {
-        ReadData = "Yes";
+    if (title.value != "" && author.value != "" && pages.value != "") {
+        let ReadData;
+    
+        if (checkBox.checked) {
+            ReadData = "Yes";
+        }
+        else {
+            ReadData = "No";
+        }
+        const bookName = new Book(title.value, author.value, pages.value, ReadData);
+        myLibrary.push(bookName);
+        console.log(myLibrary);
+        displayBook();
+        title.value = "";
+        author.value = "";
+        pages.value = "";
+        checkBox.checked = false;
+    
+        modal.classList.remove("active");
     }
-    else {
-        ReadData = "No";
     }
-    const bookName = new Book(title.value, author.value, pages.value, ReadData);
-    myLibrary.push(bookName);
-    console.log(myLibrary);
-    displayBook();
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    checkBox.checked = false;
-
-    modal.classList.remove("active");
-}
-}
-
-
-
- AddBookBtn.addEventListener("click", addBookToLibrary);
-
 function displayBook() {
     table.textContent = "";
 
@@ -102,14 +75,7 @@ function displayBook() {
         table.appendChild(row);
 
     }
-}
-
-cancelBtn.addEventListener("click", showModal);
-
-function showModal() {
-    modal.classList.toggle("active");
-}
-AddNewBookBtn.addEventListener("click", showModal);
+}   
 
 function toggleRead(id) {
     if (myLibrary[id].read === "Yes") {
@@ -121,6 +87,39 @@ function toggleRead(id) {
 
     displayBook();
 }
+
+const AddNewBookBtn = document.querySelector(".addNewBook");
+const AddBookBtn = document.querySelector(".addBook");
+const modal = document.querySelector(".modal");
+const cancelBtn = document.querySelector(".cancel");
+
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const table = document.querySelector(".tbody");
+const checkBox = document.querySelector("#read");
+
+
+const Book1 = new Book("Think and grow Rich", "Napoleon Hill", "250", "Yes");
+const Book2 = new Book("Atomic Habits", "James Clear", "260", "Yes");
+const Book3 = new Book("Richest Man in Babylon", "George Carson", "144", "Yes");
+const Book4 = new Book("Permission Marketing", "Seth Godin", "224", "Yes");
+
+myLibrary.push(Book1);
+myLibrary.push(Book2);
+myLibrary.push(Book3);
+myLibrary.push(Book4);
+
+modal.classList.remove("active");
+displayBook();
+
+
+
+AddBookBtn.addEventListener("click", addBookToLibrary);
+
+cancelBtn.addEventListener("click", showModal);
+
+AddNewBookBtn.addEventListener("click", showModal);
 
 table.addEventListener("click", function(event) {
     

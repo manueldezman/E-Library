@@ -156,3 +156,37 @@ button {
 button:hover {
     box-shadow: 0 0 15px rgba(193, 65, 65, 0.5);   
 }
+
+@media only screen and (max-width: 425px) {
+    .pages {
+        display: none;
+    }
+
+    body {
+        width: 100%;
+        padding-top: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    th, td {
+        padding: 5px 5px;
+    }
+    table {
+        font-size: 1.2rem;
+    }
+
+    .ReadBtn {
+        width: 5rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 100%;
+    }
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}

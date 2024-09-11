@@ -54,6 +54,7 @@ function displayBook() {
 
         const pagesData = document.createElement("td");
         pagesData.textContent = book.pages;
+        pagesData.classList.add("pages");
         row.appendChild(pagesData);
 
         

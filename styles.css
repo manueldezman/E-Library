@@ -15,7 +15,6 @@ body {
     padding-top: 10rem;
 }
 .modal {
-    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -63,10 +62,7 @@ input:invalid {
     width: 28rem;
     padding: .5rem 1rem;
 }
-.active {
-    display: block;
-    z-index: 2;
-}
+
 button {
     padding: .5rem 1rem;
 }

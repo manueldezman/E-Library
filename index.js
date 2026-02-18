@@ -16,10 +16,6 @@ class Book {
 } 
 
 
-function showModal() {
-    modal.classList.toggle("active");
-}
-
 function addBookToLibrary() {
     if (title.value != "" && author.value != "" && pages.value != "") {
         let ReadData;
@@ -38,8 +34,7 @@ function addBookToLibrary() {
         author.value = "";
         pages.value = "";
         checkBox.checked = false;
-    
-        modal.classList.remove("active");
+
     }
     }
 function displayBook() {
@@ -95,8 +90,7 @@ function toggleRead(id) {
 
 const AddNewBookBtn = document.querySelector(".addNewBook");
 const AddBookBtn = document.querySelector(".addBook");
-const modal = document.querySelector(".modal");
-const cancelBtn = document.querySelector(".cancel");
+
 
 const title = document.querySelector("#title");
 const author = document.querySelector("#author");
@@ -115,16 +109,11 @@ myLibrary.push(Book2);
 myLibrary.push(Book3);
 myLibrary.push(Book4);
 
-modal.classList.remove("active");
 displayBook();
 
 
 
 AddBookBtn.addEventListener("click", addBookToLibrary);
-
-cancelBtn.addEventListener("click", showModal);
-
-AddNewBookBtn.addEventListener("click", showModal);
 
 table.addEventListener("click", function(event) {
     

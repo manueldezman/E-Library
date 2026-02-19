@@ -28,8 +28,11 @@ const AddBookBtn = document.querySelector(".addBook");
 
 
 
-function createBook() {
+function createBook(event) {
 
+    // event.preventDefault();
+
+ if (title.value != "" && author.value != "" && pages.value != "") {
     let name = title.value;
     let authorVal = author.value;
     let pagesVal = pages.value;
@@ -40,6 +43,14 @@ function createBook() {
     storeBook(book);
 
     displayBooks();
+
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    checkBox.checked = false;
+ }
+  
+    
 }
 
 function storeBook(book) {
@@ -129,4 +140,5 @@ myLibrary.push(Book1, Book2, Book3, Book4);
 displayBooks();
 
 
-AddBookBtn.addEventListener("click", createBook);
+const form = document.querySelector(".modal-container");
+form.addEventListener("submit", createBook);

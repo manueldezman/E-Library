@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <dialog id="myModal" class="modal">
-        <form class="modal-container" action="">
+    <dialog id="myModal" >
+        <form class="modal-container" method="dialog">
             <h1 class="details">Add Book Details</h1>
             <div class="input-container">
                 <label for="title">Title</label>
@@ -18,13 +18,13 @@
             <div class="input-container"><label for="author">Author</label><input type="text" id="author" name="author" required></div>
             <div class="input-container"><label for="pages">Number of Pages</label><input type="number" id="pages" name="pages" required></div>
             <div class="checkbox-container"><input type="checkbox" id="read" name="read"><label for="read">Have you read the Book?</label></div>
-            <button type="button" command="close" commandFor="myModal" class="addBook" >Add Book</button>
+            <button type="submit" class="addBook" >Add Book</button>
         </form>
       
     </dialog>
     <div class="header">
-        <h1 class="header-title">Dezman's Collections</h1> 
-        <button command="show-modal" commandFor="myModal" class="addNewBook">New Book</button>
+        <h1 class="header-title">Dezman's Collections</h1>
+        <button command="show-modal" commandfor="myModal" class="addNewBook">New Book</button>
     </div>
     <table>
         <thead>

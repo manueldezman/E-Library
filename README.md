@@ -1,4 +1,4 @@
-# 📚 Simple Library Manager (Vanilla JS)
+# 📚 E-Library (Vanilla JS)
 
 A lightweight **browser-based library management app** that lets users add books, toggle read status, and remove entries using dynamic DOM rendering.
 

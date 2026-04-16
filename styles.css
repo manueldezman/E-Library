@@ -15,6 +15,11 @@ body {
     padding-top: 10rem;
 }
 
+.error {
+    color: white;
+    background-color: darkred;
+}
+
 dialog#myModal {
     margin-inline: auto;
     margin-top: 4rem;

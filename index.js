@@ -30,7 +30,6 @@ const AddBookBtn = document.querySelector(".addBook");
 
 function createBook(event) {
 
-
  if (title.value != "" && author.value != "" && pages.value != "") {
     let name = title.value;
     let authorVal = author.value;

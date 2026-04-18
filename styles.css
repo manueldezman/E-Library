@@ -70,7 +70,7 @@ input:user-valid {
 input:user-invalid {
     border: .2rem solid darkred;
 }
-.input-container > button, .input-container > input, .checkbox-container {
+.input-container > button, .input-container > input, .input-container > span , .checkbox-container {
     width: 28rem;
     padding: .5rem 1rem;
 }
@@ -78,7 +78,14 @@ input:user-invalid {
 button {
     padding: .5rem 1rem;
 }
+span {
+    font-size: 1.2rem;
+    
+}
 
+.hidden {
+    display: none;
+}
 table {
     margin-inline: auto;
     border-collapse: collapse;
